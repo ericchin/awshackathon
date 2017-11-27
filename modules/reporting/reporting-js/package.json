@@ -1,0 +1,7 @@
+{
+  "name": "reporting-js",
+  "version": "1.0.0",
+  "devDependencies": {
+    "highcharts": "5.0.10"
+  }
+}
