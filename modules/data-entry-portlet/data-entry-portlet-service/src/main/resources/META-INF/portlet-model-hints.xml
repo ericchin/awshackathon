@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="foundation.fitness.portal.service.model.FitnessRecord">
+		<field name="uuid" type="String" />
+		<field name="recordId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="teacherUserId" type="long" />
+		<field name="studentUserId" type="long" />
+		<field name="studentGrade" type="String" />
+		<field name="studentAge" type="int" />
+		<field name="testDate" type="Date" />
+		<field name="heightFeet" type="int" />
+		<field name="heightInches" type="int" />
+		<field name="weight" type="int" />
+		<field name="bmi" type="int" />
+		<field name="triSkinfold" type="int" />
+		<field name="calfSkinfold" type="int" />
+		<field name="percentBodyFatCalc" type="float" />
+		<field name="percentBodyFatEntered" type="float" />
+		<field name="twentyMPacerLaps" type="int" />
+		<field name="fifteenMPacerLaps" type="int" />
+		<field name="pacerVo2Max" type="float" />
+		<field name="mileRunMinutes" type="int" />
+		<field name="mileRunSeconds" type="int" />
+		<field name="mileRunVo2Max" type="float" />
+		<field name="walkTestMinutes" type="int" />
+		<field name="walkTestSeconds" type="int" />
+		<field name="walkTestHrBpm" type="int" />
+		<field name="walkTestVo2Max" type="float" />
+		<field name="curlUps" type="int" />
+		<field name="trunkLiftInches" type="int" />
+		<field name="pushups" type="int" />
+		<field name="modPullUps" type="int" />
+		<field name="flexArmHangSeconds" type="int" />
+		<field name="sitReachLInches" type="int" />
+		<field name="sitReachRInches" type="int" />
+		<field name="shoulderStretchL" type="boolean" />
+		<field name="shoulderStretchR" type="boolean" />
+	</model>
+</model-hints>

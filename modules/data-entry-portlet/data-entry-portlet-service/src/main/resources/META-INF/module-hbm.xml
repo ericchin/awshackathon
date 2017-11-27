@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping auto-import="false" default-lazy="false">
+	<import class="foundation.fitness.portal.service.model.FitnessRecord" />
+	<class name="foundation.fitness.portal.service.model.impl.FitnessRecordImpl" table="NFF_FitnessRecord">
+		<id name="recordId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property column="uuid_" name="uuid" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="groupId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="companyId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="userId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="userName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="createDate" type="org.hibernate.type.TimestampType" />
+		<property name="modifiedDate" type="org.hibernate.type.TimestampType" />
+		<property name="teacherUserId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="studentUserId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="studentGrade" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="studentAge" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="testDate" type="org.hibernate.type.TimestampType" />
+		<property name="heightFeet" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="heightInches" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="weight" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="bmi" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="triSkinfold" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="calfSkinfold" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="percentBodyFatCalc" type="com.liferay.portal.dao.orm.hibernate.FloatType" />
+		<property name="percentBodyFatEntered" type="com.liferay.portal.dao.orm.hibernate.FloatType" />
+		<property name="twentyMPacerLaps" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="fifteenMPacerLaps" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="pacerVo2Max" type="com.liferay.portal.dao.orm.hibernate.FloatType" />
+		<property name="mileRunMinutes" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="mileRunSeconds" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="mileRunVo2Max" type="com.liferay.portal.dao.orm.hibernate.FloatType" />
+		<property name="walkTestMinutes" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="walkTestSeconds" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="walkTestHrBpm" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="walkTestVo2Max" type="com.liferay.portal.dao.orm.hibernate.FloatType" />
+		<property name="curlUps" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="trunkLiftInches" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="pushups" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="modPullUps" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="flexArmHangSeconds" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="sitReachLInches" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="sitReachRInches" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="shoulderStretchL" type="com.liferay.portal.dao.orm.hibernate.BooleanType" />
+		<property name="shoulderStretchR" type="com.liferay.portal.dao.orm.hibernate.BooleanType" />
+	</class>
+</hibernate-mapping>

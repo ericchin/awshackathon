@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 7.0.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_7_0_0.dtd">
+
+<service-builder package-path="foundation.fitness.portal.service">
+	<author>Sten Martinez</author>
+	<namespace>NFF</namespace>
+	<entity local-service="true" name="FitnessRecord" remote-service="true" uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="recordId" primary="true" type="long" />
+
+		<!-- Group (school) instance -->
+
+		<column name="groupId" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" type="long" />
+		<column name="userId" type="long" />
+		<column name="userName" type="String" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+
+		<!-- Record Info -->
+
+		<column name="teacherUserId" type="long" />
+		<column name="studentUserId" type="long" />
+		<column name="studentGrade" type="String"/>
+		<column name="studentAge" type="int" />
+		<column name="testDate" type="Date"/>
+
+		<!-- Body Comp -->
+
+		<column name="heightFeet" type="int" />
+		<column name="heightInches" type="int" />
+		<column name="weight" type="int" />
+		<column name="bmi" type="int"/>
+		<column name="triSkinfold" type="int"/>
+		<column name="calfSkinfold" type="int"/>
+		<column name="percentBodyFatCalc" type="float"/>
+		<column name="percentBodyFatEntered" type="float"/>
+
+		<!-- Aerobic Capacity -->
+
+		<column name="twentyMPacerLaps" type="int"/>
+		<column name="fifteenMPacerLaps" type="int"/>
+		<column name="pacerVo2Max" type="float"/>
+		<column name="mileRunMinutes" type="int"/>
+		<column name="mileRunSeconds" type="int"/>
+		<column name="mileRunVo2Max" type="float"/>
+		<column name="walkTestMinutes" type="int"/>
+		<column name="walkTestSeconds" type="int"/>
+		<column name="walkTestHrBpm" type="int"/>
+		<column name="walkTestVo2Max" type="float"/>
+
+		<!-- Muscle Strength, Endurance and Flexibility -->
+
+		<column name="curlUps" type="int"/>
+		<column name="trunkLiftInches" type="int"/>
+		<column name="pushups" type="int"/>
+		<column name="modPullUps" type="int"/>
+		<column name="flexArmHangSeconds" type="int"/>
+		<column name="sitReachLInches" type="int"/>
+		<column name="sitReachRInches" type="int"/>
+		<column name="shoulderStretchL" type="boolean"/>
+		<column name="shoulderStretchR" type="boolean"/>
+		
+	</entity>
+</service-builder>
