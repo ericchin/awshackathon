@@ -1,0 +1,4 @@
+Bundle-Name: student-reporting-web
+Bundle-SymbolicName: student.reporting.web
+Bundle-Version: 1.0.0
+Export-Package: student.reporting.web.constants

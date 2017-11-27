@@ -1,0 +1,4 @@
+Bundle-Name: district-reporting-web
+Bundle-SymbolicName: district.reporting.web
+Bundle-Version: 1.0.0
+Export-Package: district.reporting.web.constants
