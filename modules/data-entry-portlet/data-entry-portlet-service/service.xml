@@ -25,7 +25,11 @@
 		<!-- Record Info -->
 
 		<column name="teacherUserId" type="long" />
-		<column name="studentUserId" type="long" />
+		<column name="className" type="String"/>
+		<column name="studentFirstName" type="String"/>
+		<column name="studentLastName" type="String"/>
+		<column name="studentGender" type="String"/>
+		<column name="studentId" type="String" />
 		<column name="studentGrade" type="String"/>
 		<column name="studentAge" type="int" />
 		<column name="testDate" type="Date"/>

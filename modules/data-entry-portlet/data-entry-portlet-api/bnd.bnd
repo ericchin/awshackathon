@@ -1,9 +1,10 @@
 Bundle-Name: data-entry-portlet-api
-Bundle-SymbolicName: data.entry.portlet.api
+Bundle-SymbolicName: foundation.fitness.data.entry.portlet.api
 Bundle-Version: 1.0.0
 Export-Package:\
-	data.entry.portlet.exception,\
-	data.entry.portlet.model,\
-	data.entry.portlet.service,\
-	data.entry.portlet.service.persistence
+	foundation.fitness.portal.service.exception,\
+	foundation.fitness.portal.service.model,\
+	foundation.fitness.portal.service.service,\
+	foundation.fitness.portal.service.service.persistence,\
+	foundation.fitness.portal.service.constants
 -includeresource: META-INF/service.xml=../data-entry-portlet-service/service.xml

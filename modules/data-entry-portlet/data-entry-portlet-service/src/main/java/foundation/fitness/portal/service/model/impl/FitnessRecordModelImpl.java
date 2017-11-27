@@ -82,7 +82,11 @@ public class FitnessRecordModelImpl extends BaseModelImpl<FitnessRecord>
 			{ "createDate", Types.TIMESTAMP },
 			{ "modifiedDate", Types.TIMESTAMP },
 			{ "teacherUserId", Types.BIGINT },
-			{ "studentUserId", Types.BIGINT },
+			{ "className", Types.VARCHAR },
+			{ "studentFirstName", Types.VARCHAR },
+			{ "studentLastName", Types.VARCHAR },
+			{ "studentGender", Types.VARCHAR },
+			{ "studentId", Types.VARCHAR },
 			{ "studentGrade", Types.VARCHAR },
 			{ "studentAge", Types.INTEGER },
 			{ "testDate", Types.TIMESTAMP },
@@ -126,7 +130,11 @@ public class FitnessRecordModelImpl extends BaseModelImpl<FitnessRecord>
 		TABLE_COLUMNS_MAP.put("createDate", Types.TIMESTAMP);
 		TABLE_COLUMNS_MAP.put("modifiedDate", Types.TIMESTAMP);
 		TABLE_COLUMNS_MAP.put("teacherUserId", Types.BIGINT);
-		TABLE_COLUMNS_MAP.put("studentUserId", Types.BIGINT);
+		TABLE_COLUMNS_MAP.put("className", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("studentFirstName", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("studentLastName", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("studentGender", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("studentId", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("studentGrade", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("studentAge", Types.INTEGER);
 		TABLE_COLUMNS_MAP.put("testDate", Types.TIMESTAMP);
@@ -159,20 +167,20 @@ public class FitnessRecordModelImpl extends BaseModelImpl<FitnessRecord>
 		TABLE_COLUMNS_MAP.put("shoulderStretchR", Types.BOOLEAN);
 	}
 
-	public static final String TABLE_SQL_CREATE = "create table NFF_FitnessRecord (uuid_ VARCHAR(75) null,recordId LONG not null primary key,groupId LONG,companyId LONG,userId LONG,userName VARCHAR(75) null,createDate DATE null,modifiedDate DATE null,teacherUserId LONG,studentUserId LONG,studentGrade VARCHAR(75) null,studentAge INTEGER,testDate DATE null,heightFeet INTEGER,heightInches INTEGER,weight INTEGER,bmi INTEGER,triSkinfold INTEGER,calfSkinfold INTEGER,percentBodyFatCalc DOUBLE,percentBodyFatEntered DOUBLE,twentyMPacerLaps INTEGER,fifteenMPacerLaps INTEGER,pacerVo2Max DOUBLE,mileRunMinutes INTEGER,mileRunSeconds INTEGER,mileRunVo2Max DOUBLE,walkTestMinutes INTEGER,walkTestSeconds INTEGER,walkTestHrBpm INTEGER,walkTestVo2Max DOUBLE,curlUps INTEGER,trunkLiftInches INTEGER,pushups INTEGER,modPullUps INTEGER,flexArmHangSeconds INTEGER,sitReachLInches INTEGER,sitReachRInches INTEGER,shoulderStretchL BOOLEAN,shoulderStretchR BOOLEAN)";
+	public static final String TABLE_SQL_CREATE = "create table NFF_FitnessRecord (uuid_ VARCHAR(75) null,recordId LONG not null primary key,groupId LONG,companyId LONG,userId LONG,userName VARCHAR(75) null,createDate DATE null,modifiedDate DATE null,teacherUserId LONG,className VARCHAR(75) null,studentFirstName VARCHAR(75) null,studentLastName VARCHAR(75) null,studentGender VARCHAR(75) null,studentId VARCHAR(75) null,studentGrade VARCHAR(75) null,studentAge INTEGER,testDate DATE null,heightFeet INTEGER,heightInches INTEGER,weight INTEGER,bmi INTEGER,triSkinfold INTEGER,calfSkinfold INTEGER,percentBodyFatCalc DOUBLE,percentBodyFatEntered DOUBLE,twentyMPacerLaps INTEGER,fifteenMPacerLaps INTEGER,pacerVo2Max DOUBLE,mileRunMinutes INTEGER,mileRunSeconds INTEGER,mileRunVo2Max DOUBLE,walkTestMinutes INTEGER,walkTestSeconds INTEGER,walkTestHrBpm INTEGER,walkTestVo2Max DOUBLE,curlUps INTEGER,trunkLiftInches INTEGER,pushups INTEGER,modPullUps INTEGER,flexArmHangSeconds INTEGER,sitReachLInches INTEGER,sitReachRInches INTEGER,shoulderStretchL BOOLEAN,shoulderStretchR BOOLEAN)";
 	public static final String TABLE_SQL_DROP = "drop table NFF_FitnessRecord";
 	public static final String ORDER_BY_JPQL = " ORDER BY fitnessRecord.recordId ASC";
 	public static final String ORDER_BY_SQL = " ORDER BY NFF_FitnessRecord.recordId ASC";
 	public static final String DATA_SOURCE = "liferayDataSource";
 	public static final String SESSION_FACTORY = "liferaySessionFactory";
 	public static final String TX_MANAGER = "liferayTransactionManager";
-	public static final boolean ENTITY_CACHE_ENABLED = GetterUtil.getBoolean(data.entry.portlet.service.util.ServiceProps.get(
+	public static final boolean ENTITY_CACHE_ENABLED = GetterUtil.getBoolean(foundation.fitness.data.entry.portlet.service.util.ServiceProps.get(
 				"value.object.entity.cache.enabled.foundation.fitness.portal.service.model.FitnessRecord"),
 			true);
-	public static final boolean FINDER_CACHE_ENABLED = GetterUtil.getBoolean(data.entry.portlet.service.util.ServiceProps.get(
+	public static final boolean FINDER_CACHE_ENABLED = GetterUtil.getBoolean(foundation.fitness.data.entry.portlet.service.util.ServiceProps.get(
 				"value.object.finder.cache.enabled.foundation.fitness.portal.service.model.FitnessRecord"),
 			true);
-	public static final boolean COLUMN_BITMASK_ENABLED = GetterUtil.getBoolean(data.entry.portlet.service.util.ServiceProps.get(
+	public static final boolean COLUMN_BITMASK_ENABLED = GetterUtil.getBoolean(foundation.fitness.data.entry.portlet.service.util.ServiceProps.get(
 				"value.object.column.bitmask.enabled.foundation.fitness.portal.service.model.FitnessRecord"),
 			true);
 	public static final long COMPANYID_COLUMN_BITMASK = 1L;
@@ -202,7 +210,11 @@ public class FitnessRecordModelImpl extends BaseModelImpl<FitnessRecord>
 		model.setCreateDate(soapModel.getCreateDate());
 		model.setModifiedDate(soapModel.getModifiedDate());
 		model.setTeacherUserId(soapModel.getTeacherUserId());
-		model.setStudentUserId(soapModel.getStudentUserId());
+		model.setClassName(soapModel.getClassName());
+		model.setStudentFirstName(soapModel.getStudentFirstName());
+		model.setStudentLastName(soapModel.getStudentLastName());
+		model.setStudentGender(soapModel.getStudentGender());
+		model.setStudentId(soapModel.getStudentId());
 		model.setStudentGrade(soapModel.getStudentGrade());
 		model.setStudentAge(soapModel.getStudentAge());
 		model.setTestDate(soapModel.getTestDate());
@@ -257,7 +269,7 @@ public class FitnessRecordModelImpl extends BaseModelImpl<FitnessRecord>
 		return models;
 	}
 
-	public static final long LOCK_EXPIRATION_TIME = GetterUtil.getLong(data.entry.portlet.service.util.ServiceProps.get(
+	public static final long LOCK_EXPIRATION_TIME = GetterUtil.getLong(foundation.fitness.data.entry.portlet.service.util.ServiceProps.get(
 				"lock.expiration.time.foundation.fitness.portal.service.model.FitnessRecord"));
 
 	public FitnessRecordModelImpl() {
@@ -306,7 +318,11 @@ public class FitnessRecordModelImpl extends BaseModelImpl<FitnessRecord>
 		attributes.put("createDate", getCreateDate());
 		attributes.put("modifiedDate", getModifiedDate());
 		attributes.put("teacherUserId", getTeacherUserId());
-		attributes.put("studentUserId", getStudentUserId());
+		attributes.put("className", getClassName());
+		attributes.put("studentFirstName", getStudentFirstName());
+		attributes.put("studentLastName", getStudentLastName());
+		attributes.put("studentGender", getStudentGender());
+		attributes.put("studentId", getStudentId());
 		attributes.put("studentGrade", getStudentGrade());
 		attributes.put("studentAge", getStudentAge());
 		attributes.put("testDate", getTestDate());
@@ -400,10 +416,34 @@ public class FitnessRecordModelImpl extends BaseModelImpl<FitnessRecord>
 			setTeacherUserId(teacherUserId);
 		}
 
-		Long studentUserId = (Long)attributes.get("studentUserId");
+		String className = (String)attributes.get("className");
 
-		if (studentUserId != null) {
-			setStudentUserId(studentUserId);
+		if (className != null) {
+			setClassName(className);
+		}
+
+		String studentFirstName = (String)attributes.get("studentFirstName");
+
+		if (studentFirstName != null) {
+			setStudentFirstName(studentFirstName);
+		}
+
+		String studentLastName = (String)attributes.get("studentLastName");
+
+		if (studentLastName != null) {
+			setStudentLastName(studentLastName);
+		}
+
+		String studentGender = (String)attributes.get("studentGender");
+
+		if (studentGender != null) {
+			setStudentGender(studentGender);
+		}
+
+		String studentId = (String)attributes.get("studentId");
+
+		if (studentId != null) {
+			setStudentId(studentId);
 		}
 
 		String studentGrade = (String)attributes.get("studentGrade");
@@ -770,29 +810,82 @@ public class FitnessRecordModelImpl extends BaseModelImpl<FitnessRecord>
 
 	@JSON
 	@Override
-	public long getStudentUserId() {
-		return _studentUserId;
-	}
-
-	@Override
-	public void setStudentUserId(long studentUserId) {
-		_studentUserId = studentUserId;
-	}
-
-	@Override
-	public String getStudentUserUuid() {
-		try {
-			User user = UserLocalServiceUtil.getUserById(getStudentUserId());
-
-			return user.getUuid();
-		}
-		catch (PortalException pe) {
+	public String getClassName() {
+		if (_className == null) {
 			return StringPool.BLANK;
 		}
+		else {
+			return _className;
+		}
 	}
 
 	@Override
-	public void setStudentUserUuid(String studentUserUuid) {
+	public void setClassName(String className) {
+		_className = className;
+	}
+
+	@JSON
+	@Override
+	public String getStudentFirstName() {
+		if (_studentFirstName == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _studentFirstName;
+		}
+	}
+
+	@Override
+	public void setStudentFirstName(String studentFirstName) {
+		_studentFirstName = studentFirstName;
+	}
+
+	@JSON
+	@Override
+	public String getStudentLastName() {
+		if (_studentLastName == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _studentLastName;
+		}
+	}
+
+	@Override
+	public void setStudentLastName(String studentLastName) {
+		_studentLastName = studentLastName;
+	}
+
+	@JSON
+	@Override
+	public String getStudentGender() {
+		if (_studentGender == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _studentGender;
+		}
+	}
+
+	@Override
+	public void setStudentGender(String studentGender) {
+		_studentGender = studentGender;
+	}
+
+	@JSON
+	@Override
+	public String getStudentId() {
+		if (_studentId == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _studentId;
+		}
+	}
+
+	@Override
+	public void setStudentId(String studentId) {
+		_studentId = studentId;
 	}
 
 	@JSON
@@ -1188,7 +1281,11 @@ public class FitnessRecordModelImpl extends BaseModelImpl<FitnessRecord>
 		fitnessRecordImpl.setCreateDate(getCreateDate());
 		fitnessRecordImpl.setModifiedDate(getModifiedDate());
 		fitnessRecordImpl.setTeacherUserId(getTeacherUserId());
-		fitnessRecordImpl.setStudentUserId(getStudentUserId());
+		fitnessRecordImpl.setClassName(getClassName());
+		fitnessRecordImpl.setStudentFirstName(getStudentFirstName());
+		fitnessRecordImpl.setStudentLastName(getStudentLastName());
+		fitnessRecordImpl.setStudentGender(getStudentGender());
+		fitnessRecordImpl.setStudentId(getStudentId());
 		fitnessRecordImpl.setStudentGrade(getStudentGrade());
 		fitnessRecordImpl.setStudentAge(getStudentAge());
 		fitnessRecordImpl.setTestDate(getTestDate());
@@ -1344,7 +1441,45 @@ public class FitnessRecordModelImpl extends BaseModelImpl<FitnessRecord>
 
 		fitnessRecordCacheModel.teacherUserId = getTeacherUserId();
 
-		fitnessRecordCacheModel.studentUserId = getStudentUserId();
+		fitnessRecordCacheModel.className = getClassName();
+
+		String className = fitnessRecordCacheModel.className;
+
+		if ((className != null) && (className.length() == 0)) {
+			fitnessRecordCacheModel.className = null;
+		}
+
+		fitnessRecordCacheModel.studentFirstName = getStudentFirstName();
+
+		String studentFirstName = fitnessRecordCacheModel.studentFirstName;
+
+		if ((studentFirstName != null) && (studentFirstName.length() == 0)) {
+			fitnessRecordCacheModel.studentFirstName = null;
+		}
+
+		fitnessRecordCacheModel.studentLastName = getStudentLastName();
+
+		String studentLastName = fitnessRecordCacheModel.studentLastName;
+
+		if ((studentLastName != null) && (studentLastName.length() == 0)) {
+			fitnessRecordCacheModel.studentLastName = null;
+		}
+
+		fitnessRecordCacheModel.studentGender = getStudentGender();
+
+		String studentGender = fitnessRecordCacheModel.studentGender;
+
+		if ((studentGender != null) && (studentGender.length() == 0)) {
+			fitnessRecordCacheModel.studentGender = null;
+		}
+
+		fitnessRecordCacheModel.studentId = getStudentId();
+
+		String studentId = fitnessRecordCacheModel.studentId;
+
+		if ((studentId != null) && (studentId.length() == 0)) {
+			fitnessRecordCacheModel.studentId = null;
+		}
 
 		fitnessRecordCacheModel.studentGrade = getStudentGrade();
 
@@ -1424,7 +1559,7 @@ public class FitnessRecordModelImpl extends BaseModelImpl<FitnessRecord>
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(81);
+		StringBundler sb = new StringBundler(89);
 
 		sb.append("{uuid=");
 		sb.append(getUuid());
@@ -1444,8 +1579,16 @@ public class FitnessRecordModelImpl extends BaseModelImpl<FitnessRecord>
 		sb.append(getModifiedDate());
 		sb.append(", teacherUserId=");
 		sb.append(getTeacherUserId());
-		sb.append(", studentUserId=");
-		sb.append(getStudentUserId());
+		sb.append(", className=");
+		sb.append(getClassName());
+		sb.append(", studentFirstName=");
+		sb.append(getStudentFirstName());
+		sb.append(", studentLastName=");
+		sb.append(getStudentLastName());
+		sb.append(", studentGender=");
+		sb.append(getStudentGender());
+		sb.append(", studentId=");
+		sb.append(getStudentId());
 		sb.append(", studentGrade=");
 		sb.append(getStudentGrade());
 		sb.append(", studentAge=");
@@ -1513,7 +1656,7 @@ public class FitnessRecordModelImpl extends BaseModelImpl<FitnessRecord>
 
 	@Override
 	public String toXmlString() {
-		StringBundler sb = new StringBundler(124);
+		StringBundler sb = new StringBundler(136);
 
 		sb.append("<model><model-name>");
 		sb.append("foundation.fitness.portal.service.model.FitnessRecord");
@@ -1556,8 +1699,24 @@ public class FitnessRecordModelImpl extends BaseModelImpl<FitnessRecord>
 		sb.append(getTeacherUserId());
 		sb.append("]]></column-value></column>");
 		sb.append(
-			"<column><column-name>studentUserId</column-name><column-value><![CDATA[");
-		sb.append(getStudentUserId());
+			"<column><column-name>className</column-name><column-value><![CDATA[");
+		sb.append(getClassName());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>studentFirstName</column-name><column-value><![CDATA[");
+		sb.append(getStudentFirstName());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>studentLastName</column-name><column-value><![CDATA[");
+		sb.append(getStudentLastName());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>studentGender</column-name><column-value><![CDATA[");
+		sb.append(getStudentGender());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>studentId</column-name><column-value><![CDATA[");
+		sb.append(getStudentId());
 		sb.append("]]></column-value></column>");
 		sb.append(
 			"<column><column-name>studentGrade</column-name><column-value><![CDATA[");
@@ -1704,7 +1863,11 @@ public class FitnessRecordModelImpl extends BaseModelImpl<FitnessRecord>
 	private Date _modifiedDate;
 	private boolean _setModifiedDate;
 	private long _teacherUserId;
-	private long _studentUserId;
+	private String _className;
+	private String _studentFirstName;
+	private String _studentLastName;
+	private String _studentGender;
+	private String _studentId;
 	private String _studentGrade;
 	private int _studentAge;
 	private Date _testDate;

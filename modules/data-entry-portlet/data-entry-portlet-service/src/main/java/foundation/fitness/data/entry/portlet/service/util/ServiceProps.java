@@ -12,7 +12,7 @@
  * details.
  */
 
-package data.entry.portlet.service.util;
+package foundation.fitness.data.entry.portlet.service.util;
 
 import aQute.bnd.annotation.ProviderType;
 

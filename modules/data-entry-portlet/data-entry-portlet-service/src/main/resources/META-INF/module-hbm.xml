@@ -15,7 +15,11 @@
 		<property name="createDate" type="org.hibernate.type.TimestampType" />
 		<property name="modifiedDate" type="org.hibernate.type.TimestampType" />
 		<property name="teacherUserId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
-		<property name="studentUserId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="className" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="studentFirstName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="studentLastName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="studentGender" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="studentId" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="studentGrade" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="studentAge" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
 		<property name="testDate" type="org.hibernate.type.TimestampType" />

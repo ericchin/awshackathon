@@ -66,7 +66,7 @@ public class FitnessRecordCacheModel implements CacheModel<FitnessRecord>,
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(81);
+		StringBundler sb = new StringBundler(89);
 
 		sb.append("{uuid=");
 		sb.append(uuid);
@@ -86,8 +86,16 @@ public class FitnessRecordCacheModel implements CacheModel<FitnessRecord>,
 		sb.append(modifiedDate);
 		sb.append(", teacherUserId=");
 		sb.append(teacherUserId);
-		sb.append(", studentUserId=");
-		sb.append(studentUserId);
+		sb.append(", className=");
+		sb.append(className);
+		sb.append(", studentFirstName=");
+		sb.append(studentFirstName);
+		sb.append(", studentLastName=");
+		sb.append(studentLastName);
+		sb.append(", studentGender=");
+		sb.append(studentGender);
+		sb.append(", studentId=");
+		sb.append(studentId);
 		sb.append(", studentGrade=");
 		sb.append(studentGrade);
 		sb.append(", studentAge=");
@@ -191,7 +199,41 @@ public class FitnessRecordCacheModel implements CacheModel<FitnessRecord>,
 		}
 
 		fitnessRecordImpl.setTeacherUserId(teacherUserId);
-		fitnessRecordImpl.setStudentUserId(studentUserId);
+
+		if (className == null) {
+			fitnessRecordImpl.setClassName(StringPool.BLANK);
+		}
+		else {
+			fitnessRecordImpl.setClassName(className);
+		}
+
+		if (studentFirstName == null) {
+			fitnessRecordImpl.setStudentFirstName(StringPool.BLANK);
+		}
+		else {
+			fitnessRecordImpl.setStudentFirstName(studentFirstName);
+		}
+
+		if (studentLastName == null) {
+			fitnessRecordImpl.setStudentLastName(StringPool.BLANK);
+		}
+		else {
+			fitnessRecordImpl.setStudentLastName(studentLastName);
+		}
+
+		if (studentGender == null) {
+			fitnessRecordImpl.setStudentGender(StringPool.BLANK);
+		}
+		else {
+			fitnessRecordImpl.setStudentGender(studentGender);
+		}
+
+		if (studentId == null) {
+			fitnessRecordImpl.setStudentId(StringPool.BLANK);
+		}
+		else {
+			fitnessRecordImpl.setStudentId(studentId);
+		}
 
 		if (studentGrade == null) {
 			fitnessRecordImpl.setStudentGrade(StringPool.BLANK);
@@ -258,8 +300,11 @@ public class FitnessRecordCacheModel implements CacheModel<FitnessRecord>,
 		modifiedDate = objectInput.readLong();
 
 		teacherUserId = objectInput.readLong();
-
-		studentUserId = objectInput.readLong();
+		className = objectInput.readUTF();
+		studentFirstName = objectInput.readUTF();
+		studentLastName = objectInput.readUTF();
+		studentGender = objectInput.readUTF();
+		studentId = objectInput.readUTF();
 		studentGrade = objectInput.readUTF();
 
 		studentAge = objectInput.readInt();
@@ -350,7 +395,40 @@ public class FitnessRecordCacheModel implements CacheModel<FitnessRecord>,
 
 		objectOutput.writeLong(teacherUserId);
 
-		objectOutput.writeLong(studentUserId);
+		if (className == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+		}
+		else {
+			objectOutput.writeUTF(className);
+		}
+
+		if (studentFirstName == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+		}
+		else {
+			objectOutput.writeUTF(studentFirstName);
+		}
+
+		if (studentLastName == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+		}
+		else {
+			objectOutput.writeUTF(studentLastName);
+		}
+
+		if (studentGender == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+		}
+		else {
+			objectOutput.writeUTF(studentGender);
+		}
+
+		if (studentId == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+		}
+		else {
+			objectOutput.writeUTF(studentId);
+		}
 
 		if (studentGrade == null) {
 			objectOutput.writeUTF(StringPool.BLANK);
@@ -426,7 +504,11 @@ public class FitnessRecordCacheModel implements CacheModel<FitnessRecord>,
 	public long createDate;
 	public long modifiedDate;
 	public long teacherUserId;
-	public long studentUserId;
+	public String className;
+	public String studentFirstName;
+	public String studentLastName;
+	public String studentGender;
+	public String studentId;
 	public String studentGrade;
 	public int studentAge;
 	public long testDate;

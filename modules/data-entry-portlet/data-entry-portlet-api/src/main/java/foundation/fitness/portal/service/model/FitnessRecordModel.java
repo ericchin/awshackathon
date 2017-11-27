@@ -239,32 +239,79 @@ public interface FitnessRecordModel extends BaseModel<FitnessRecord>,
 	public void setTeacherUserUuid(String teacherUserUuid);
 
 	/**
-	 * Returns the student user ID of this fitness record.
+	 * Returns the class name of this fitness record.
 	 *
-	 * @return the student user ID of this fitness record
+	 * @return the class name of this fitness record
 	 */
-	public long getStudentUserId();
+	@AutoEscape
+	public String getClassName();
 
 	/**
-	 * Sets the student user ID of this fitness record.
+	 * Sets the class name of this fitness record.
 	 *
-	 * @param studentUserId the student user ID of this fitness record
+	 * @param className the class name of this fitness record
 	 */
-	public void setStudentUserId(long studentUserId);
+	public void setClassName(String className);
 
 	/**
-	 * Returns the student user uuid of this fitness record.
+	 * Returns the student first name of this fitness record.
 	 *
-	 * @return the student user uuid of this fitness record
+	 * @return the student first name of this fitness record
 	 */
-	public String getStudentUserUuid();
+	@AutoEscape
+	public String getStudentFirstName();
 
 	/**
-	 * Sets the student user uuid of this fitness record.
+	 * Sets the student first name of this fitness record.
 	 *
-	 * @param studentUserUuid the student user uuid of this fitness record
+	 * @param studentFirstName the student first name of this fitness record
 	 */
-	public void setStudentUserUuid(String studentUserUuid);
+	public void setStudentFirstName(String studentFirstName);
+
+	/**
+	 * Returns the student last name of this fitness record.
+	 *
+	 * @return the student last name of this fitness record
+	 */
+	@AutoEscape
+	public String getStudentLastName();
+
+	/**
+	 * Sets the student last name of this fitness record.
+	 *
+	 * @param studentLastName the student last name of this fitness record
+	 */
+	public void setStudentLastName(String studentLastName);
+
+	/**
+	 * Returns the student gender of this fitness record.
+	 *
+	 * @return the student gender of this fitness record
+	 */
+	@AutoEscape
+	public String getStudentGender();
+
+	/**
+	 * Sets the student gender of this fitness record.
+	 *
+	 * @param studentGender the student gender of this fitness record
+	 */
+	public void setStudentGender(String studentGender);
+
+	/**
+	 * Returns the student ID of this fitness record.
+	 *
+	 * @return the student ID of this fitness record
+	 */
+	@AutoEscape
+	public String getStudentId();
+
+	/**
+	 * Sets the student ID of this fitness record.
+	 *
+	 * @param studentId the student ID of this fitness record
+	 */
+	public void setStudentId(String studentId);
 
 	/**
 	 * Returns the student grade of this fitness record.

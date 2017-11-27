@@ -1885,7 +1885,11 @@ public class FitnessRecordPersistenceImpl extends BasePersistenceImpl<FitnessRec
 		fitnessRecordImpl.setCreateDate(fitnessRecord.getCreateDate());
 		fitnessRecordImpl.setModifiedDate(fitnessRecord.getModifiedDate());
 		fitnessRecordImpl.setTeacherUserId(fitnessRecord.getTeacherUserId());
-		fitnessRecordImpl.setStudentUserId(fitnessRecord.getStudentUserId());
+		fitnessRecordImpl.setClassName(fitnessRecord.getClassName());
+		fitnessRecordImpl.setStudentFirstName(fitnessRecord.getStudentFirstName());
+		fitnessRecordImpl.setStudentLastName(fitnessRecord.getStudentLastName());
+		fitnessRecordImpl.setStudentGender(fitnessRecord.getStudentGender());
+		fitnessRecordImpl.setStudentId(fitnessRecord.getStudentId());
 		fitnessRecordImpl.setStudentGrade(fitnessRecord.getStudentGrade());
 		fitnessRecordImpl.setStudentAge(fitnessRecord.getStudentAge());
 		fitnessRecordImpl.setTestDate(fitnessRecord.getTestDate());

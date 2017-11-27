@@ -43,7 +43,11 @@ public class FitnessRecordSoap implements Serializable {
 		soapModel.setCreateDate(model.getCreateDate());
 		soapModel.setModifiedDate(model.getModifiedDate());
 		soapModel.setTeacherUserId(model.getTeacherUserId());
-		soapModel.setStudentUserId(model.getStudentUserId());
+		soapModel.setClassName(model.getClassName());
+		soapModel.setStudentFirstName(model.getStudentFirstName());
+		soapModel.setStudentLastName(model.getStudentLastName());
+		soapModel.setStudentGender(model.getStudentGender());
+		soapModel.setStudentId(model.getStudentId());
 		soapModel.setStudentGrade(model.getStudentGrade());
 		soapModel.setStudentAge(model.getStudentAge());
 		soapModel.setTestDate(model.getTestDate());
@@ -198,12 +202,44 @@ public class FitnessRecordSoap implements Serializable {
 		_teacherUserId = teacherUserId;
 	}
 
-	public long getStudentUserId() {
-		return _studentUserId;
+	public String getClassName() {
+		return _className;
 	}
 
-	public void setStudentUserId(long studentUserId) {
-		_studentUserId = studentUserId;
+	public void setClassName(String className) {
+		_className = className;
+	}
+
+	public String getStudentFirstName() {
+		return _studentFirstName;
+	}
+
+	public void setStudentFirstName(String studentFirstName) {
+		_studentFirstName = studentFirstName;
+	}
+
+	public String getStudentLastName() {
+		return _studentLastName;
+	}
+
+	public void setStudentLastName(String studentLastName) {
+		_studentLastName = studentLastName;
+	}
+
+	public String getStudentGender() {
+		return _studentGender;
+	}
+
+	public void setStudentGender(String studentGender) {
+		_studentGender = studentGender;
+	}
+
+	public String getStudentId() {
+		return _studentId;
+	}
+
+	public void setStudentId(String studentId) {
+		_studentId = studentId;
 	}
 
 	public String getStudentGrade() {
@@ -463,7 +499,11 @@ public class FitnessRecordSoap implements Serializable {
 	private Date _createDate;
 	private Date _modifiedDate;
 	private long _teacherUserId;
-	private long _studentUserId;
+	private String _className;
+	private String _studentFirstName;
+	private String _studentLastName;
+	private String _studentGender;
+	private String _studentId;
 	private String _studentGrade;
 	private int _studentAge;
 	private Date _testDate;

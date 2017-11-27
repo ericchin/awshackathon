@@ -11,7 +11,11 @@
 		<field name="createDate" type="Date" />
 		<field name="modifiedDate" type="Date" />
 		<field name="teacherUserId" type="long" />
-		<field name="studentUserId" type="long" />
+		<field name="className" type="String" />
+		<field name="studentFirstName" type="String" />
+		<field name="studentLastName" type="String" />
+		<field name="studentGender" type="String" />
+		<field name="studentId" type="String" />
 		<field name="studentGrade" type="String" />
 		<field name="studentAge" type="int" />
 		<field name="testDate" type="Date" />

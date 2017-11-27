@@ -69,7 +69,11 @@ public class FitnessRecordWrapper implements FitnessRecord,
 		attributes.put("createDate", getCreateDate());
 		attributes.put("modifiedDate", getModifiedDate());
 		attributes.put("teacherUserId", getTeacherUserId());
-		attributes.put("studentUserId", getStudentUserId());
+		attributes.put("className", getClassName());
+		attributes.put("studentFirstName", getStudentFirstName());
+		attributes.put("studentLastName", getStudentLastName());
+		attributes.put("studentGender", getStudentGender());
+		attributes.put("studentId", getStudentId());
 		attributes.put("studentGrade", getStudentGrade());
 		attributes.put("studentAge", getStudentAge());
 		attributes.put("testDate", getTestDate());
@@ -160,10 +164,34 @@ public class FitnessRecordWrapper implements FitnessRecord,
 			setTeacherUserId(teacherUserId);
 		}
 
-		Long studentUserId = (Long)attributes.get("studentUserId");
+		String className = (String)attributes.get("className");
 
-		if (studentUserId != null) {
-			setStudentUserId(studentUserId);
+		if (className != null) {
+			setClassName(className);
+		}
+
+		String studentFirstName = (String)attributes.get("studentFirstName");
+
+		if (studentFirstName != null) {
+			setStudentFirstName(studentFirstName);
+		}
+
+		String studentLastName = (String)attributes.get("studentLastName");
+
+		if (studentLastName != null) {
+			setStudentLastName(studentLastName);
+		}
+
+		String studentGender = (String)attributes.get("studentGender");
+
+		if (studentGender != null) {
+			setStudentGender(studentGender);
+		}
+
+		String studentId = (String)attributes.get("studentId");
+
+		if (studentId != null) {
+			setStudentId(studentId);
 		}
 
 		String studentGrade = (String)attributes.get("studentGrade");
@@ -706,6 +734,36 @@ public class FitnessRecordWrapper implements FitnessRecord,
 	}
 
 	/**
+	* Returns the class name of this fitness record.
+	*
+	* @return the class name of this fitness record
+	*/
+	@Override
+	public java.lang.String getClassName() {
+		return _fitnessRecord.getClassName();
+	}
+
+	/**
+	* Returns the student first name of this fitness record.
+	*
+	* @return the student first name of this fitness record
+	*/
+	@Override
+	public java.lang.String getStudentFirstName() {
+		return _fitnessRecord.getStudentFirstName();
+	}
+
+	/**
+	* Returns the student gender of this fitness record.
+	*
+	* @return the student gender of this fitness record
+	*/
+	@Override
+	public java.lang.String getStudentGender() {
+		return _fitnessRecord.getStudentGender();
+	}
+
+	/**
 	* Returns the student grade of this fitness record.
 	*
 	* @return the student grade of this fitness record
@@ -716,13 +774,23 @@ public class FitnessRecordWrapper implements FitnessRecord,
 	}
 
 	/**
-	* Returns the student user uuid of this fitness record.
+	* Returns the student ID of this fitness record.
 	*
-	* @return the student user uuid of this fitness record
+	* @return the student ID of this fitness record
 	*/
 	@Override
-	public java.lang.String getStudentUserUuid() {
-		return _fitnessRecord.getStudentUserUuid();
+	public java.lang.String getStudentId() {
+		return _fitnessRecord.getStudentId();
+	}
+
+	/**
+	* Returns the student last name of this fitness record.
+	*
+	* @return the student last name of this fitness record
+	*/
+	@Override
+	public java.lang.String getStudentLastName() {
+		return _fitnessRecord.getStudentLastName();
 	}
 
 	/**
@@ -846,16 +914,6 @@ public class FitnessRecordWrapper implements FitnessRecord,
 	}
 
 	/**
-	* Returns the student user ID of this fitness record.
-	*
-	* @return the student user ID of this fitness record
-	*/
-	@Override
-	public long getStudentUserId() {
-		return _fitnessRecord.getStudentUserId();
-	}
-
-	/**
 	* Returns the teacher user ID of this fitness record.
 	*
 	* @return the teacher user ID of this fitness record
@@ -903,6 +961,16 @@ public class FitnessRecordWrapper implements FitnessRecord,
 	@Override
 	public void setCalfSkinfold(int calfSkinfold) {
 		_fitnessRecord.setCalfSkinfold(calfSkinfold);
+	}
+
+	/**
+	* Sets the class name of this fitness record.
+	*
+	* @param className the class name of this fitness record
+	*/
+	@Override
+	public void setClassName(java.lang.String className) {
+		_fitnessRecord.setClassName(className);
 	}
 
 	/**
@@ -1172,6 +1240,26 @@ public class FitnessRecordWrapper implements FitnessRecord,
 	}
 
 	/**
+	* Sets the student first name of this fitness record.
+	*
+	* @param studentFirstName the student first name of this fitness record
+	*/
+	@Override
+	public void setStudentFirstName(java.lang.String studentFirstName) {
+		_fitnessRecord.setStudentFirstName(studentFirstName);
+	}
+
+	/**
+	* Sets the student gender of this fitness record.
+	*
+	* @param studentGender the student gender of this fitness record
+	*/
+	@Override
+	public void setStudentGender(java.lang.String studentGender) {
+		_fitnessRecord.setStudentGender(studentGender);
+	}
+
+	/**
 	* Sets the student grade of this fitness record.
 	*
 	* @param studentGrade the student grade of this fitness record
@@ -1182,23 +1270,23 @@ public class FitnessRecordWrapper implements FitnessRecord,
 	}
 
 	/**
-	* Sets the student user ID of this fitness record.
+	* Sets the student ID of this fitness record.
 	*
-	* @param studentUserId the student user ID of this fitness record
+	* @param studentId the student ID of this fitness record
 	*/
 	@Override
-	public void setStudentUserId(long studentUserId) {
-		_fitnessRecord.setStudentUserId(studentUserId);
+	public void setStudentId(java.lang.String studentId) {
+		_fitnessRecord.setStudentId(studentId);
 	}
 
 	/**
-	* Sets the student user uuid of this fitness record.
+	* Sets the student last name of this fitness record.
 	*
-	* @param studentUserUuid the student user uuid of this fitness record
+	* @param studentLastName the student last name of this fitness record
 	*/
 	@Override
-	public void setStudentUserUuid(java.lang.String studentUserUuid) {
-		_fitnessRecord.setStudentUserUuid(studentUserUuid);
+	public void setStudentLastName(java.lang.String studentLastName) {
+		_fitnessRecord.setStudentLastName(studentLastName);
 	}
 
 	/**
