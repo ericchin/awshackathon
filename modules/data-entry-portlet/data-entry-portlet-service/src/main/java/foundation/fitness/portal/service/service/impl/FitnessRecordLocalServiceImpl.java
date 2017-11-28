@@ -48,6 +48,13 @@ public class FitnessRecordLocalServiceImpl
 		return fitnessRecordPersistence.findByGroupId(groupId);
 	}
 
+	public List<FitnessRecord> getFitnessRecordsByStudentUserId(
+		long studentUserId) {
+
+		return fitnessRecordPersistence.findByStudentId(
+			String.valueOf(studentUserId));
+	}
+
 	public List<FitnessRecord> getFitnessRecordsByUserId(long userId) {
 		return fitnessRecordPersistence.findByUserId(userId);
 	}

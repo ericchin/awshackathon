@@ -80,6 +80,10 @@
 			<finder-column name="userId" />
 		</finder>
 
+		<finder name="StudentId" return-type="Collection">
+			<finder-column name="studentId" />
+		</finder>
+
 		<reference entity="Group" package-path="com.liferay.portal" />
 		<reference entity="Organization" package-path="com.liferay.portal" />
 		<reference entity="User" package-path="com.liferay.portal" />
