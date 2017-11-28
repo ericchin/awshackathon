@@ -69,6 +69,19 @@
 		<column name="sitReachRInches" type="int"/>
 		<column name="shoulderStretchL" type="boolean"/>
 		<column name="shoulderStretchR" type="boolean"/>
-		
+
+		<!-- Finder -->
+
+		<finder name="GroupId" return-type="Collection">
+			<finder-column name="groupId" />
+		</finder>
+
+		<finder name="UserId" return-type="Collection">
+			<finder-column name="userId" />
+		</finder>
+
+		<reference entity="Group" package-path="com.liferay.portal" />
+		<reference entity="Organization" package-path="com.liferay.portal" />
+		<reference entity="User" package-path="com.liferay.portal" />
 	</entity>
 </service-builder>

@@ -14,7 +14,13 @@
 
 package foundation.fitness.portal.service.service.impl;
 
+import com.liferay.portal.kernel.model.Group;
+import com.liferay.portal.kernel.model.Organization;
+import foundation.fitness.portal.service.model.FitnessRecord;
 import foundation.fitness.portal.service.service.base.FitnessRecordLocalServiceBaseImpl;
+
+import java.util.List;
+import java.util.Objects;
 
 /**
  * The implementation of the fitness record local service.
@@ -37,4 +43,12 @@ public class FitnessRecordLocalServiceImpl
 	 *
 	 * Never reference this class directly. Always use {@link foundation.fitness.portal.service.service.FitnessRecordLocalServiceUtil} to access the fitness record local service.
 	 */
+
+	public List<FitnessRecord> getFitnessRecordsByGroupId(long groupId) {
+		return fitnessRecordPersistence.findByGroupId(groupId);
+	}
+
+	public List<FitnessRecord> getFitnessRecordsByUserId(long userId) {
+		return fitnessRecordPersistence.findByUserId(userId);
+	}
 }
