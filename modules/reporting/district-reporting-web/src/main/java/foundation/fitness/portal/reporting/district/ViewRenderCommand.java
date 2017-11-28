@@ -98,7 +98,9 @@ public class ViewRenderCommand implements MVCRenderCommand {
 			}
 		}
 
-		seriesJSON.setIndex(seriesJSON.index() - 1);
+		if (seriesJSON.index() - 1 > 0) {
+			seriesJSON.setIndex(seriesJSON.index() - 1);
+		}
 
 		seriesJSON.append(StringPool.CLOSE_BRACKET);
 
