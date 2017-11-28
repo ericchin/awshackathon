@@ -6,5 +6,6 @@ Export-Package:\
 	foundation.fitness.portal.service.model,\
 	foundation.fitness.portal.service.service,\
 	foundation.fitness.portal.service.service.persistence,\
-	foundation.fitness.portal.service.constants
+	foundation.fitness.portal.service.constants,\
+	foundation.fitness.portal.ds
 -includeresource: META-INF/service.xml=../data-entry-portlet-service/service.xml
