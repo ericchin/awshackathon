@@ -3,7 +3,11 @@ package data.entry.portlet.web.portlet.mvc;
 import com.liferay.counter.kernel.service.CounterLocalService;
 import com.liferay.portal.kernel.portlet.bridges.mvc.BaseMVCActionCommand;
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCActionCommand;
+import com.liferay.portal.kernel.servlet.MultiSessionMessages;
+import com.liferay.portal.kernel.servlet.SessionMessages;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
+import com.liferay.portal.kernel.util.GetterUtil;
+import com.liferay.portal.kernel.util.JavaConstants;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.WebKeys;
 import foundation.fitness.portal.service.model.FitnessRecord;
@@ -13,6 +17,7 @@ import org.osgi.service.component.annotations.Reference;
 
 import javax.portlet.ActionRequest;
 import javax.portlet.ActionResponse;
+import javax.portlet.PortletConfig;
 import java.util.Date;
 
 /**
@@ -102,6 +107,28 @@ public class AddFitnessRecordActionCommand extends BaseMVCActionCommand {
 		fitnessRecord.setWalkTestVo2Max(walkVo2Max);
 
 		fitnessRecordLocalService.updateFitnessRecord(fitnessRecord);
+
+		MultiSessionMessages.add(actionRequest, "fitness-report-submitted");
+	}
+
+	@Override
+	protected void addSuccessMessage(ActionRequest actionRequest, ActionResponse actionResponse) {
+
+			PortletConfig portletConfig = (PortletConfig)actionRequest.getAttribute(
+					JavaConstants.JAVAX_PORTLET_CONFIG);
+
+			boolean addProcessActionSuccessMessage = GetterUtil.getBoolean(
+					portletConfig.getInitParameter("add-process-action-success-action"),
+					true);
+
+			if (!addProcessActionSuccessMessage) {
+				return;
+			}
+
+			String successMessage = "fitness-report-submitted";
+
+			SessionMessages.add(actionRequest, "requestProcessed", successMessage);
+		System.out.println("LALALALALLALA");
 	}
 
 	@Reference

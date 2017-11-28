@@ -6,9 +6,12 @@
 <%@ taglib uri="http://liferay.com/tld/theme" prefix="liferay-theme" %>
 
 <%@ taglib uri="http://liferay.com/tld/aui" prefix="aui" %>
+<%@ taglib prefix="liferay-ui" uri="http://liferay.com/tld/ui" %>
 
 <liferay-theme:defineObjects />
 <portlet:actionURL name="/add_fitness_record" var="addRecordURL"/>
+
+<liferay-ui:success key="fitness-report-submitted" message="fitness-report-submitted"/>
 
 <aui:form action="${addRecordURL}" method="post" name="fm">
 	<aui:fieldset-group markupView="lexicon">

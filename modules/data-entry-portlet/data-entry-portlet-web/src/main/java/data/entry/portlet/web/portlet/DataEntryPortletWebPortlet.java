@@ -27,7 +27,8 @@ import java.io.IOException;
 			"javax.portlet.init-param.view-template=/view.jsp",
 			"javax.portlet.name=nff_data_entry_portlet",
 			"javax.portlet.resource-bundle=content.Language",
-			"javax.portlet.security-role-ref=power-user,user"
+			"javax.portlet.security-role-ref=power-user,user",
+			"javax.portlet.init-param.add-process-action-success-action=false"
 	},
 	service = Portlet.class
 )
