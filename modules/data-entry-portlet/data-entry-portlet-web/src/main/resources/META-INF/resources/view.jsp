@@ -36,6 +36,7 @@
 					}
 				%>
 			</aui:select>
+			<aui:input cssClass="testDate" name="testDate" label="Test Date"/>
 			<aui:input name="firstName" label="First Name"/>
 			<aui:input name="lastName" label="Last Name"/>
 			<aui:input name="gender" label="Gender" required="true"/>
@@ -103,4 +104,18 @@
             $("#_nff_data_entry_portlet_gender").val("Male");
 		}
     });
+
+    YUI().use(
+        'aui-datepicker',
+        function(Y) {
+            new Y.DatePicker(
+                {
+                    trigger: '.testDate',
+                    popover: {
+                        zIndex: 1
+                    },
+                    mask: '%m/%d/%Y'
+                });
+        }
+    );
 </script>

@@ -6,8 +6,6 @@ import com.liferay.portal.kernel.portlet.bridges.mvc.MVCActionCommand;
 import com.liferay.portal.kernel.servlet.MultiSessionMessages;
 import com.liferay.portal.kernel.servlet.SessionMessages;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
-import com.liferay.portal.kernel.util.GetterUtil;
-import com.liferay.portal.kernel.util.JavaConstants;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.WebKeys;
 import foundation.fitness.portal.service.model.FitnessRecord;
@@ -17,7 +15,6 @@ import org.osgi.service.component.annotations.Reference;
 
 import javax.portlet.ActionRequest;
 import javax.portlet.ActionResponse;
-import javax.portlet.PortletConfig;
 import java.util.Date;
 
 /**
@@ -34,6 +31,9 @@ import java.util.Date;
 		service = MVCActionCommand.class
 )
 public class AddFitnessRecordActionCommand extends BaseMVCActionCommand {
+
+	public static final DateFormat DEFAULT_DATE_FORMAT = DateFormatFactoryUtil.getSimpleDateFormat("MM/dd/yyyy");
+
 	@Override
 	protected void doProcessAction(ActionRequest actionRequest, ActionResponse actionResponse) throws Exception {
 		ThemeDisplay themeDisplay = (ThemeDisplay)actionRequest.getAttribute(
@@ -44,6 +44,7 @@ public class AddFitnessRecordActionCommand extends BaseMVCActionCommand {
 
 		String className = ParamUtil.getString(actionRequest, "class");
 		String firstName = ParamUtil.getString(actionRequest, "firstName");
+		Date testDate = ParamUtil.getDate(actionRequest, "testDate", DEFAULT_DATE_FORMAT);
 		String lastName = ParamUtil.getString(actionRequest, "lastName");
 		String studentId = ParamUtil.getString(actionRequest, "studentId");
 		String gender = ParamUtil.getString(actionRequest, "gender");
@@ -79,6 +80,7 @@ public class AddFitnessRecordActionCommand extends BaseMVCActionCommand {
 		fitnessRecord.setCreateDate(new Date());
 
 		fitnessRecord.setClassName(className);
+		fitnessRecord.setTestDate(testDate);
 		fitnessRecord.setStudentFirstName(firstName);
 		fitnessRecord.setStudentLastName(lastName);
 		fitnessRecord.setStudentId(studentId);
