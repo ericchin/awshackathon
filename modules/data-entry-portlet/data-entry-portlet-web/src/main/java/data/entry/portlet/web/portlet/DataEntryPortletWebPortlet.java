@@ -25,7 +25,7 @@ import java.io.IOException;
 			"javax.portlet.display-name=Data Entry",
 			"javax.portlet.init-param.template-path=/",
 			"javax.portlet.init-param.view-template=/view.jsp",
-			"javax.portlet.name=nff-data-entry-portlet",
+			"javax.portlet.name=nff_data_entry_portlet",
 			"javax.portlet.resource-bundle=content.Language",
 			"javax.portlet.security-role-ref=power-user,user"
 	},

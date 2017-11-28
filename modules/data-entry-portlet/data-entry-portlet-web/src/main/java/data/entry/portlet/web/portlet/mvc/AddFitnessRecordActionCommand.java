@@ -1,14 +1,15 @@
 package data.entry.portlet.web.portlet.mvc;
 
-import com.liferay.counter.kernel.service.CounterLocalServiceUtil;
+import com.liferay.counter.kernel.service.CounterLocalService;
 import com.liferay.portal.kernel.portlet.bridges.mvc.BaseMVCActionCommand;
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCActionCommand;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.WebKeys;
 import foundation.fitness.portal.service.model.FitnessRecord;
-import foundation.fitness.portal.service.service.FitnessRecordLocalServiceUtil;
+import foundation.fitness.portal.service.service.FitnessRecordLocalService;
 import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.Reference;
 
 import javax.portlet.ActionRequest;
 import javax.portlet.ActionResponse;
@@ -22,7 +23,7 @@ import java.util.Date;
 @Component(
 		immediate = true,
 		property = {
-				"javax.portlet.name=nff-data-entry-portlet",
+				"javax.portlet.name=nff_data_entry_portlet",
 				"mvc.command.name=/add_fitness_record"
 		},
 		service = MVCActionCommand.class
@@ -44,7 +45,7 @@ public class AddFitnessRecordActionCommand extends BaseMVCActionCommand {
 		String grade = ParamUtil.getString(actionRequest, "grade");
 		int age = ParamUtil.getInteger(actionRequest, "age");
 
-		FitnessRecord fitnessRecord = FitnessRecordLocalServiceUtil.createFitnessRecord(CounterLocalServiceUtil.increment());
+		FitnessRecord fitnessRecord = fitnessRecordLocalService.createFitnessRecord(counterLocalService.increment());
 		fitnessRecord.setUserId(userId);
 		fitnessRecord.setUserName(themeDisplay.getUser().getFullName());
 		fitnessRecord.setGroupId(groupId);
@@ -60,6 +61,12 @@ public class AddFitnessRecordActionCommand extends BaseMVCActionCommand {
 		fitnessRecord.setStudentGrade(grade);
 		fitnessRecord.setStudentAge(age);
 
-		FitnessRecordLocalServiceUtil.updateFitnessRecord(fitnessRecord);
+		fitnessRecordLocalService.updateFitnessRecord(fitnessRecord);
 	}
+
+	@Reference
+	private FitnessRecordLocalService fitnessRecordLocalService;
+
+	@Reference
+	private CounterLocalService counterLocalService;
 }
