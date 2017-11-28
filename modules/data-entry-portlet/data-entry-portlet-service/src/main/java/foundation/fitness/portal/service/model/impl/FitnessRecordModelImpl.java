@@ -185,9 +185,10 @@ public class FitnessRecordModelImpl extends BaseModelImpl<FitnessRecord>
 			true);
 	public static final long COMPANYID_COLUMN_BITMASK = 1L;
 	public static final long GROUPID_COLUMN_BITMASK = 2L;
-	public static final long USERID_COLUMN_BITMASK = 4L;
-	public static final long UUID_COLUMN_BITMASK = 8L;
-	public static final long RECORDID_COLUMN_BITMASK = 16L;
+	public static final long STUDENTID_COLUMN_BITMASK = 4L;
+	public static final long USERID_COLUMN_BITMASK = 8L;
+	public static final long UUID_COLUMN_BITMASK = 16L;
+	public static final long RECORDID_COLUMN_BITMASK = 32L;
 
 	/**
 	 * Converts the soap model instance into a normal model instance.
@@ -898,7 +899,17 @@ public class FitnessRecordModelImpl extends BaseModelImpl<FitnessRecord>
 
 	@Override
 	public void setStudentId(String studentId) {
+		_columnBitmask |= STUDENTID_COLUMN_BITMASK;
+
+		if (_originalStudentId == null) {
+			_originalStudentId = _studentId;
+		}
+
 		_studentId = studentId;
+	}
+
+	public String getOriginalStudentId() {
+		return GetterUtil.getString(_originalStudentId);
 	}
 
 	@JSON
@@ -1407,6 +1418,8 @@ public class FitnessRecordModelImpl extends BaseModelImpl<FitnessRecord>
 
 		fitnessRecordModelImpl._setModifiedDate = false;
 
+		fitnessRecordModelImpl._originalStudentId = fitnessRecordModelImpl._studentId;
+
 		fitnessRecordModelImpl._columnBitmask = 0;
 	}
 
@@ -1887,6 +1900,7 @@ public class FitnessRecordModelImpl extends BaseModelImpl<FitnessRecord>
 	private String _studentLastName;
 	private String _studentGender;
 	private String _studentId;
+	private String _originalStudentId;
 	private String _studentGrade;
 	private int _studentAge;
 	private Date _testDate;

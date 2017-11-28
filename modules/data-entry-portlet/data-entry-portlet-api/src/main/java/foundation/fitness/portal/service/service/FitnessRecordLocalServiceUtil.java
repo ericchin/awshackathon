@@ -263,6 +263,11 @@ public class FitnessRecordLocalServiceUtil {
 		return getService().getFitnessRecordsByGroupId(groupId);
 	}
 
+	public static java.util.List<foundation.fitness.portal.service.model.FitnessRecord> getFitnessRecordsByStudentUserId(
+		long studentUserId) {
+		return getService().getFitnessRecordsByStudentUserId(studentUserId);
+	}
+
 	public static java.util.List<foundation.fitness.portal.service.model.FitnessRecord> getFitnessRecordsByUserId(
 		long userId) {
 		return getService().getFitnessRecordsByUserId(userId);

@@ -281,6 +281,12 @@ public class FitnessRecordLocalServiceWrapper
 	}
 
 	@Override
+	public java.util.List<foundation.fitness.portal.service.model.FitnessRecord> getFitnessRecordsByStudentUserId(
+		long studentUserId) {
+		return _fitnessRecordLocalService.getFitnessRecordsByStudentUserId(studentUserId);
+	}
+
+	@Override
 	public java.util.List<foundation.fitness.portal.service.model.FitnessRecord> getFitnessRecordsByUserId(
 		long userId) {
 		return _fitnessRecordLocalService.getFitnessRecordsByUserId(userId);

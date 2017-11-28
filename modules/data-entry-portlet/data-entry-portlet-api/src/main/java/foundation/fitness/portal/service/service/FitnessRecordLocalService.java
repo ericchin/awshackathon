@@ -242,6 +242,10 @@ public interface FitnessRecordLocalService extends BaseLocalService,
 	public List<FitnessRecord> getFitnessRecordsByGroupId(long groupId);
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public List<FitnessRecord> getFitnessRecordsByStudentUserId(
+		long studentUserId);
+
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public List<FitnessRecord> getFitnessRecordsByUserId(long userId);
 
 	/**
