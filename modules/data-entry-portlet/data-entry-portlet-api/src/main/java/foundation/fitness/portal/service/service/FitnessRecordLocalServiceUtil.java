@@ -258,6 +258,16 @@ public class FitnessRecordLocalServiceUtil {
 		return getService().getFitnessRecords(start, end);
 	}
 
+	public static java.util.List<foundation.fitness.portal.service.model.FitnessRecord> getFitnessRecordsByGroupId(
+		long groupId) {
+		return getService().getFitnessRecordsByGroupId(groupId);
+	}
+
+	public static java.util.List<foundation.fitness.portal.service.model.FitnessRecord> getFitnessRecordsByUserId(
+		long userId) {
+		return getService().getFitnessRecordsByUserId(userId);
+	}
+
 	/**
 	* Returns all the fitness records matching the UUID and company.
 	*

@@ -274,6 +274,18 @@ public class FitnessRecordLocalServiceWrapper
 		return _fitnessRecordLocalService.getFitnessRecords(start, end);
 	}
 
+	@Override
+	public java.util.List<foundation.fitness.portal.service.model.FitnessRecord> getFitnessRecordsByGroupId(
+		long groupId) {
+		return _fitnessRecordLocalService.getFitnessRecordsByGroupId(groupId);
+	}
+
+	@Override
+	public java.util.List<foundation.fitness.portal.service.model.FitnessRecord> getFitnessRecordsByUserId(
+		long userId) {
+		return _fitnessRecordLocalService.getFitnessRecordsByUserId(userId);
+	}
+
 	/**
 	* Returns all the fitness records matching the UUID and company.
 	*

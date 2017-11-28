@@ -238,6 +238,12 @@ public interface FitnessRecordLocalService extends BaseLocalService,
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public List<FitnessRecord> getFitnessRecords(int start, int end);
 
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public List<FitnessRecord> getFitnessRecordsByGroupId(long groupId);
+
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public List<FitnessRecord> getFitnessRecordsByUserId(long userId);
+
 	/**
 	* Returns all the fitness records matching the UUID and company.
 	*
