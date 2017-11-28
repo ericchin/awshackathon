@@ -93,7 +93,7 @@ public class FitnessRecordModelImpl extends BaseModelImpl<FitnessRecord>
 			{ "heightFeet", Types.INTEGER },
 			{ "heightInches", Types.INTEGER },
 			{ "weight", Types.INTEGER },
-			{ "bmi", Types.INTEGER },
+			{ "bmi", Types.FLOAT },
 			{ "triSkinfold", Types.INTEGER },
 			{ "calfSkinfold", Types.INTEGER },
 			{ "percentBodyFatCalc", Types.FLOAT },
@@ -141,7 +141,7 @@ public class FitnessRecordModelImpl extends BaseModelImpl<FitnessRecord>
 		TABLE_COLUMNS_MAP.put("heightFeet", Types.INTEGER);
 		TABLE_COLUMNS_MAP.put("heightInches", Types.INTEGER);
 		TABLE_COLUMNS_MAP.put("weight", Types.INTEGER);
-		TABLE_COLUMNS_MAP.put("bmi", Types.INTEGER);
+		TABLE_COLUMNS_MAP.put("bmi", Types.FLOAT);
 		TABLE_COLUMNS_MAP.put("triSkinfold", Types.INTEGER);
 		TABLE_COLUMNS_MAP.put("calfSkinfold", Types.INTEGER);
 		TABLE_COLUMNS_MAP.put("percentBodyFatCalc", Types.FLOAT);
@@ -167,20 +167,20 @@ public class FitnessRecordModelImpl extends BaseModelImpl<FitnessRecord>
 		TABLE_COLUMNS_MAP.put("shoulderStretchR", Types.BOOLEAN);
 	}
 
-	public static final String TABLE_SQL_CREATE = "create table NFF_FitnessRecord (uuid_ VARCHAR(75) null,recordId LONG not null primary key,groupId LONG,companyId LONG,userId LONG,userName VARCHAR(75) null,createDate DATE null,modifiedDate DATE null,teacherUserId LONG,className VARCHAR(75) null,studentFirstName VARCHAR(75) null,studentLastName VARCHAR(75) null,studentGender VARCHAR(75) null,studentId VARCHAR(75) null,studentGrade VARCHAR(75) null,studentAge INTEGER,testDate DATE null,heightFeet INTEGER,heightInches INTEGER,weight INTEGER,bmi INTEGER,triSkinfold INTEGER,calfSkinfold INTEGER,percentBodyFatCalc DOUBLE,percentBodyFatEntered DOUBLE,twentyMPacerLaps INTEGER,fifteenMPacerLaps INTEGER,pacerVo2Max DOUBLE,mileRunMinutes INTEGER,mileRunSeconds INTEGER,mileRunVo2Max DOUBLE,walkTestMinutes INTEGER,walkTestSeconds INTEGER,walkTestHrBpm INTEGER,walkTestVo2Max DOUBLE,curlUps INTEGER,trunkLiftInches INTEGER,pushups INTEGER,modPullUps INTEGER,flexArmHangSeconds INTEGER,sitReachLInches INTEGER,sitReachRInches INTEGER,shoulderStretchL BOOLEAN,shoulderStretchR BOOLEAN)";
+	public static final String TABLE_SQL_CREATE = "create table NFF_FitnessRecord (uuid_ VARCHAR(75) null,recordId LONG not null primary key,groupId LONG,companyId LONG,userId LONG,userName VARCHAR(75) null,createDate DATE null,modifiedDate DATE null,teacherUserId LONG,className VARCHAR(75) null,studentFirstName VARCHAR(75) null,studentLastName VARCHAR(75) null,studentGender VARCHAR(75) null,studentId VARCHAR(75) null,studentGrade VARCHAR(75) null,studentAge INTEGER,testDate DATE null,heightFeet INTEGER,heightInches INTEGER,weight INTEGER,bmi DOUBLE,triSkinfold INTEGER,calfSkinfold INTEGER,percentBodyFatCalc DOUBLE,percentBodyFatEntered DOUBLE,twentyMPacerLaps INTEGER,fifteenMPacerLaps INTEGER,pacerVo2Max DOUBLE,mileRunMinutes INTEGER,mileRunSeconds INTEGER,mileRunVo2Max DOUBLE,walkTestMinutes INTEGER,walkTestSeconds INTEGER,walkTestHrBpm INTEGER,walkTestVo2Max DOUBLE,curlUps INTEGER,trunkLiftInches INTEGER,pushups INTEGER,modPullUps INTEGER,flexArmHangSeconds INTEGER,sitReachLInches INTEGER,sitReachRInches INTEGER,shoulderStretchL BOOLEAN,shoulderStretchR BOOLEAN)";
 	public static final String TABLE_SQL_DROP = "drop table NFF_FitnessRecord";
 	public static final String ORDER_BY_JPQL = " ORDER BY fitnessRecord.recordId ASC";
 	public static final String ORDER_BY_SQL = " ORDER BY NFF_FitnessRecord.recordId ASC";
 	public static final String DATA_SOURCE = "liferayDataSource";
 	public static final String SESSION_FACTORY = "liferaySessionFactory";
 	public static final String TX_MANAGER = "liferayTransactionManager";
-	public static final boolean ENTITY_CACHE_ENABLED = GetterUtil.getBoolean(foundation.fitness.data.entry.portlet.service.util.ServiceProps.get(
+	public static final boolean ENTITY_CACHE_ENABLED = GetterUtil.getBoolean(data.entry.portlet.foundation.fitness.data.entry.portlet.service.util.ServiceProps.get(
 				"value.object.entity.cache.enabled.foundation.fitness.portal.service.model.FitnessRecord"),
 			true);
-	public static final boolean FINDER_CACHE_ENABLED = GetterUtil.getBoolean(foundation.fitness.data.entry.portlet.service.util.ServiceProps.get(
+	public static final boolean FINDER_CACHE_ENABLED = GetterUtil.getBoolean(data.entry.portlet.foundation.fitness.data.entry.portlet.service.util.ServiceProps.get(
 				"value.object.finder.cache.enabled.foundation.fitness.portal.service.model.FitnessRecord"),
 			true);
-	public static final boolean COLUMN_BITMASK_ENABLED = GetterUtil.getBoolean(foundation.fitness.data.entry.portlet.service.util.ServiceProps.get(
+	public static final boolean COLUMN_BITMASK_ENABLED = GetterUtil.getBoolean(data.entry.portlet.foundation.fitness.data.entry.portlet.service.util.ServiceProps.get(
 				"value.object.column.bitmask.enabled.foundation.fitness.portal.service.model.FitnessRecord"),
 			true);
 	public static final long COMPANYID_COLUMN_BITMASK = 1L;
@@ -269,7 +269,7 @@ public class FitnessRecordModelImpl extends BaseModelImpl<FitnessRecord>
 		return models;
 	}
 
-	public static final long LOCK_EXPIRATION_TIME = GetterUtil.getLong(foundation.fitness.data.entry.portlet.service.util.ServiceProps.get(
+	public static final long LOCK_EXPIRATION_TIME = GetterUtil.getLong(data.entry.portlet.foundation.fitness.data.entry.portlet.service.util.ServiceProps.get(
 				"lock.expiration.time.foundation.fitness.portal.service.model.FitnessRecord"));
 
 	public FitnessRecordModelImpl() {
@@ -482,7 +482,7 @@ public class FitnessRecordModelImpl extends BaseModelImpl<FitnessRecord>
 			setWeight(weight);
 		}
 
-		Integer bmi = (Integer)attributes.get("bmi");
+		Float bmi = (Float)attributes.get("bmi");
 
 		if (bmi != null) {
 			setBmi(bmi);
@@ -961,12 +961,12 @@ public class FitnessRecordModelImpl extends BaseModelImpl<FitnessRecord>
 
 	@JSON
 	@Override
-	public int getBmi() {
+	public float getBmi() {
 		return _bmi;
 	}
 
 	@Override
-	public void setBmi(int bmi) {
+	public void setBmi(float bmi) {
 		_bmi = bmi;
 	}
 
@@ -1874,7 +1874,7 @@ public class FitnessRecordModelImpl extends BaseModelImpl<FitnessRecord>
 	private int _heightFeet;
 	private int _heightInches;
 	private int _weight;
-	private int _bmi;
+	private float _bmi;
 	private int _triSkinfold;
 	private int _calfSkinfold;
 	private float _percentBodyFatCalc;

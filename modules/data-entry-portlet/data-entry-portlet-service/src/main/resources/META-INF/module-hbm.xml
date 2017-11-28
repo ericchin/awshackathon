@@ -26,7 +26,7 @@
 		<property name="heightFeet" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
 		<property name="heightInches" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
 		<property name="weight" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
-		<property name="bmi" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="bmi" type="com.liferay.portal.dao.orm.hibernate.FloatType" />
 		<property name="triSkinfold" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
 		<property name="calfSkinfold" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
 		<property name="percentBodyFatCalc" type="com.liferay.portal.dao.orm.hibernate.FloatType" />

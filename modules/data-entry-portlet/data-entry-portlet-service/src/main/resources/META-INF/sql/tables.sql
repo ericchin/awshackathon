@@ -19,7 +19,7 @@ create table NFF_FitnessRecord (
 	heightFeet INTEGER,
 	heightInches INTEGER,
 	weight INTEGER,
-	bmi INTEGER,
+	bmi DOUBLE,
 	triSkinfold INTEGER,
 	calfSkinfold INTEGER,
 	percentBodyFatCalc DOUBLE,

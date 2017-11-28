@@ -230,7 +230,7 @@ public class FitnessRecordWrapper implements FitnessRecord,
 			setWeight(weight);
 		}
 
-		Integer bmi = (Integer)attributes.get("bmi");
+		Float bmi = (Float)attributes.get("bmi");
 
 		if (bmi != null) {
 			setBmi(bmi);
@@ -443,6 +443,16 @@ public class FitnessRecordWrapper implements FitnessRecord,
 	}
 
 	/**
+	* Returns the bmi of this fitness record.
+	*
+	* @return the bmi of this fitness record
+	*/
+	@Override
+	public float getBmi() {
+		return _fitnessRecord.getBmi();
+	}
+
+	/**
 	* Returns the mile run vo2 max of this fitness record.
 	*
 	* @return the mile run vo2 max of this fitness record
@@ -506,16 +516,6 @@ public class FitnessRecordWrapper implements FitnessRecord,
 	public int compareTo(
 		foundation.fitness.portal.service.model.FitnessRecord fitnessRecord) {
 		return _fitnessRecord.compareTo(fitnessRecord);
-	}
-
-	/**
-	* Returns the bmi of this fitness record.
-	*
-	* @return the bmi of this fitness record
-	*/
-	@Override
-	public int getBmi() {
-		return _fitnessRecord.getBmi();
 	}
 
 	/**
@@ -944,7 +944,7 @@ public class FitnessRecordWrapper implements FitnessRecord,
 	* @param bmi the bmi of this fitness record
 	*/
 	@Override
-	public void setBmi(int bmi) {
+	public void setBmi(float bmi) {
 		_fitnessRecord.setBmi(bmi);
 	}
 

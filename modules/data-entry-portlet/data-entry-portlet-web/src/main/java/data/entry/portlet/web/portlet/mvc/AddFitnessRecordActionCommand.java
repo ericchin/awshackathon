@@ -45,6 +45,26 @@ public class AddFitnessRecordActionCommand extends BaseMVCActionCommand {
 		String grade = ParamUtil.getString(actionRequest, "grade");
 		int age = ParamUtil.getInteger(actionRequest, "age");
 
+		int heightFeet = ParamUtil.getInteger(actionRequest, "heightFeet");
+		int heightInches = ParamUtil.getInteger(actionRequest, "heightInches");
+		int weightPounds = ParamUtil.getInteger(actionRequest, "weightPounds");
+		float bmi = ParamUtil.getFloat(actionRequest, "bmi");
+		int triSkinfold = ParamUtil.getInteger(actionRequest, "triSkinfold");
+		int calfSkinfold = ParamUtil.getInteger(actionRequest, "calfSkinfold");
+		float percentBodyFatCalc = ParamUtil.getFloat(actionRequest, "percentBodyFatCalc");
+		float percentBodyFatEntered = ParamUtil.getFloat(actionRequest, "percentBodyFatEntered");
+
+		int twentyMPacerLaps = ParamUtil.getInteger(actionRequest, "twentyMPacerLaps");
+		int fifteenMPacerLaps = ParamUtil.getInteger(actionRequest, "fifteenMPacerLaps");
+		int pacerVo2Max = ParamUtil.getInteger(actionRequest, "pacerVo2Max");
+		int mileMinutes = ParamUtil.getInteger(actionRequest, "mileMinutes");
+		int mileSeconds = ParamUtil.getInteger(actionRequest, "mileSeconds");
+		int mileVo2Max = ParamUtil.getInteger(actionRequest, "mileVo2Max");
+		int walkMinutes = ParamUtil.getInteger(actionRequest, "walkMinutes");
+		int walkSeconds = ParamUtil.getInteger(actionRequest, "walkSeconds");
+		int walkHrBpm = ParamUtil.getInteger(actionRequest, "walkHrBpm");
+		int walkVo2Max = ParamUtil.getInteger(actionRequest, "walkVo2Max");
+
 		FitnessRecord fitnessRecord = fitnessRecordLocalService.createFitnessRecord(counterLocalService.increment());
 		fitnessRecord.setUserId(userId);
 		fitnessRecord.setUserName(themeDisplay.getUser().getFullName());
@@ -60,6 +80,26 @@ public class AddFitnessRecordActionCommand extends BaseMVCActionCommand {
 		fitnessRecord.setStudentGender(gender);
 		fitnessRecord.setStudentGrade(grade);
 		fitnessRecord.setStudentAge(age);
+
+		fitnessRecord.setHeightFeet(heightFeet);
+		fitnessRecord.setHeightInches(heightInches);
+		fitnessRecord.setWeight(weightPounds);
+		fitnessRecord.setBmi(bmi);
+		fitnessRecord.setTriSkinfold(triSkinfold);
+		fitnessRecord.setCalfSkinfold(calfSkinfold);
+		fitnessRecord.setPercentBodyFatCalc(percentBodyFatCalc);
+		fitnessRecord.setPercentBodyFatEntered(percentBodyFatEntered);
+
+		fitnessRecord.setTwentyMPacerLaps(twentyMPacerLaps);
+		fitnessRecord.setFifteenMPacerLaps(fifteenMPacerLaps);
+		fitnessRecord.setPacerVo2Max(pacerVo2Max);
+		fitnessRecord.setMileRunMinutes(mileMinutes);
+		fitnessRecord.setMileRunSeconds(mileSeconds);
+		fitnessRecord.setMileRunVo2Max(mileVo2Max);
+		fitnessRecord.setWalkTestMinutes(walkMinutes);
+		fitnessRecord.setWalkTestSeconds(walkSeconds);
+		fitnessRecord.setWalkTestHrBpm(walkHrBpm);
+		fitnessRecord.setWalkTestVo2Max(walkVo2Max);
 
 		fitnessRecordLocalService.updateFitnessRecord(fitnessRecord);
 	}

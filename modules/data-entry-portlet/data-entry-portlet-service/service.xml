@@ -39,7 +39,7 @@
 		<column name="heightFeet" type="int" />
 		<column name="heightInches" type="int" />
 		<column name="weight" type="int" />
-		<column name="bmi" type="int"/>
+		<column name="bmi" type="float"/>
 		<column name="triSkinfold" type="int"/>
 		<column name="calfSkinfold" type="int"/>
 		<column name="percentBodyFatCalc" type="float"/>

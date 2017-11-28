@@ -22,7 +22,7 @@
 		<field name="heightFeet" type="int" />
 		<field name="heightInches" type="int" />
 		<field name="weight" type="int" />
-		<field name="bmi" type="int" />
+		<field name="bmi" type="float" />
 		<field name="triSkinfold" type="int" />
 		<field name="calfSkinfold" type="int" />
 		<field name="percentBodyFatCalc" type="float" />

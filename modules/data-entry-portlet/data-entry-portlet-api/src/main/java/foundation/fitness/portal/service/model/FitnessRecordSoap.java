@@ -290,11 +290,11 @@ public class FitnessRecordSoap implements Serializable {
 		_weight = weight;
 	}
 
-	public int getBmi() {
+	public float getBmi() {
 		return _bmi;
 	}
 
-	public void setBmi(int bmi) {
+	public void setBmi(float bmi) {
 		_bmi = bmi;
 	}
 
@@ -510,7 +510,7 @@ public class FitnessRecordSoap implements Serializable {
 	private int _heightFeet;
 	private int _heightInches;
 	private int _weight;
-	private int _bmi;
+	private float _bmi;
 	private int _triSkinfold;
 	private int _calfSkinfold;
 	private float _percentBodyFatCalc;

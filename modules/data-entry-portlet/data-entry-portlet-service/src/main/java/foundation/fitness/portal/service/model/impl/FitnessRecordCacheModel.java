@@ -316,7 +316,7 @@ public class FitnessRecordCacheModel implements CacheModel<FitnessRecord>,
 
 		weight = objectInput.readInt();
 
-		bmi = objectInput.readInt();
+		bmi = objectInput.readFloat();
 
 		triSkinfold = objectInput.readInt();
 
@@ -446,7 +446,7 @@ public class FitnessRecordCacheModel implements CacheModel<FitnessRecord>,
 
 		objectOutput.writeInt(weight);
 
-		objectOutput.writeInt(bmi);
+		objectOutput.writeFloat(bmi);
 
 		objectOutput.writeInt(triSkinfold);
 
@@ -515,7 +515,7 @@ public class FitnessRecordCacheModel implements CacheModel<FitnessRecord>,
 	public int heightFeet;
 	public int heightInches;
 	public int weight;
-	public int bmi;
+	public float bmi;
 	public int triSkinfold;
 	public int calfSkinfold;
 	public float percentBodyFatCalc;

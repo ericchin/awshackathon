@@ -403,14 +403,14 @@ public interface FitnessRecordModel extends BaseModel<FitnessRecord>,
 	 *
 	 * @return the bmi of this fitness record
 	 */
-	public int getBmi();
+	public float getBmi();
 
 	/**
 	 * Sets the bmi of this fitness record.
 	 *
 	 * @param bmi the bmi of this fitness record
 	 */
-	public void setBmi(int bmi);
+	public void setBmi(float bmi);
 
 	/**
 	 * Returns the tri skinfold of this fitness record.
