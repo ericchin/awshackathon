@@ -49,7 +49,7 @@ String series = (String) request.getAttribute("series");
 					connectorAllowed: false
 				},
 				pointInterval: 2629746000,
-				pointStart: Date.UTC(2015, 4, 1, 0, 0, 0)
+				pointStart: Date.UTC(2017, 4, 1, 0, 0, 0)
 			}
 		},
 
