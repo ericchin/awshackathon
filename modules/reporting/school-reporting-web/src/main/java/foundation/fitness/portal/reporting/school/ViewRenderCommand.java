@@ -2,9 +2,11 @@ package foundation.fitness.portal.reporting.school;
 
 import com.liferay.portal.kernel.model.Group;
 import com.liferay.portal.kernel.model.Organization;
+import com.liferay.portal.kernel.model.User;
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCRenderCommand;
 import com.liferay.portal.kernel.service.GroupLocalService;
 import com.liferay.portal.kernel.service.OrganizationLocalService;
+import com.liferay.portal.kernel.service.UserLocalService;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
@@ -44,8 +46,6 @@ public class ViewRenderCommand implements MVCRenderCommand {
 		ThemeDisplay themeDisplay = (ThemeDisplay) renderRequest.getAttribute(
 				WebKeys.THEME_DISPLAY);
 
-		long companyId = themeDisplay.getCompanyId();
-
 		Group group = themeDisplay.getScopeGroup();
 
 		long organizationId = group.getOrganizationId();
@@ -62,28 +62,20 @@ public class ViewRenderCommand implements MVCRenderCommand {
 			long parentOrganizationId = organization.getParentOrganizationId();
 
 			if (parentOrganizationId > 0) {
-				List<Organization> schoolOrgs =
-						_organizationLocalService.getOrganizations(
-								companyId, parentOrganizationId);
+				Organization org = _organizationLocalService.fetchOrganization(
+					parentOrganizationId);
 
-				for (Organization schoolOrg : schoolOrgs) {
-					long schoolGroupId = schoolOrg.getGroupId();
+				List<User> users = _userLocalService.getOrganizationUsers(
+					organizationId);
 
-					Group schoolGroup = _groupLocalService.fetchGroup(
-							schoolGroupId);
-
-					if (Objects.isNull(schoolGroup)) {
-						continue;
-					}
-
+				for (User user : users) {
 					List<FitnessRecord> fitnessRecords =
-							_fitnessRecordLocalService.getFitnessRecordsByGroupId(
-									schoolGroupId);
+						_fitnessRecordLocalService.getFitnessRecordsByStudentUserId(
+							user.getUserId());
 
 					String seriesJSONObject =
-							_fitnessChartService.generateSeries(
-									schoolGroup.getName(
-											Locale.getDefault()), fitnessRecords);
+						_fitnessChartService.generateSeries(
+							user.getFullName(), fitnessRecords);
 
 					seriesJSON.append(seriesJSONObject);
 					seriesJSON.append(StringPool.COMMA);
@@ -113,5 +105,8 @@ public class ViewRenderCommand implements MVCRenderCommand {
 
 	@Reference
 	private OrganizationLocalService _organizationLocalService;
+
+	@Reference
+	private UserLocalService _userLocalService;
 
 }
