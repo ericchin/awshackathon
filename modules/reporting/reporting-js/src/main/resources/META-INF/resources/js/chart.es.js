@@ -4,13 +4,17 @@ import Highcharts from "highcharts/highcharts.src";
 let default3dEdgeColor = {
 	borderColor: 'transparent',
 	edgeColor: 'transparent'
-}
+};
 
 Highcharts3d(Highcharts);
 
 // API for Highcharts can be found at: http://api.highcharts.com/highcharts
 
 class Chart {
+	static dateFormat(format, time) {
+		return Highcharts.dateFormat(format, new Date(time));
+	}
+
 	constructor(config) {
 		this.config = config;
 	}
